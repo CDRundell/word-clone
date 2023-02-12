@@ -1,10 +1,11 @@
 import React from "react";
-import { range } from "../../utils"
 import Guess from "../Guess"
+import EmptyGuess from "../EmptyGuess"
+
+import { range } from "../../utils"
 import { NUM_OF_GUESSES_ALLOWED } from "../../constants"
 
-
-function GuessResults({guessList}) {
+function GuessResults({guessList, answer}) {
   const grid = range(0, NUM_OF_GUESSES_ALLOWED)
 
   return (
@@ -13,7 +14,7 @@ function GuessResults({guessList}) {
         return (
           guessList[index]
           ?
-          <Guess wordArray={guessList[index].word.split("")} key={guessList[index].id} /> : <Guess wordArray={Array(5).fill("")} key={crypto.randomUUID()} />
+          <Guess word={guessList[index].word} key={guessList[index].id} answer={answer} /> : <EmptyGuess stringArray={Array(5).fill("")} key={crypto.randomUUID()} />
         )
       })}
     </div>

@@ -1,10 +1,13 @@
 import React from "react";
 
-function Guess({wordArray}) {
+import { checkGuess } from '../../game-helpers'
+
+function Guess({word, answer}) {
+  const checkedWord = checkGuess(word, answer)
 
   return <p className="guess">
-          {wordArray.map(letter => <span className="cell">{letter}</span>)}
-        </p>;
+          {checkedWord.map((item, index) => <span className={`cell ${item.status}`} key={index}>{item.letter}</span>)}
+        </p>
 }
 
 export default Guess;
