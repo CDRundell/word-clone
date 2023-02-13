@@ -6,7 +6,7 @@ import { range } from "../../utils"
 import { NUM_OF_GUESSES_ALLOWED } from "../../constants"
 
 function GuessResults({guessList, answer}) {
-  const grid = range(0, NUM_OF_GUESSES_ALLOWED)
+  const grid = range(NUM_OF_GUESSES_ALLOWED)
 
   return (
     <div className="guess-results">
